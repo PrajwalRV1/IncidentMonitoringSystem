@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.prajwalrv.incident_monitoring.manager.IncidentManagerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.627 s -- in com.prajwalrv.incident_monitoring.manager.IncidentManagerTest
