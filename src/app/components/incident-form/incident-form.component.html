@@ -1,0 +1,172 @@
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2>Incident Details</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="incidentForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Address type</label>
+                <div class="dropdown">
+                  <select formControlName="addressType" class="form-select">
+                    <option *ngFor="let type of addressTypes" [value]="type">{{ type }}</option>
+                  </select>
+                  <div class="icon-container">
+                    <i class="fa fa-chevron-down"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="address-type-options">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="onStaff" value="On-Staff" formControlName="addressType" checked>
+                  <label class="form-check-label" for="onStaff">On-Staff</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" id="other" value="Other" formControlName="addressType">
+                  <label class="form-check-label" for="other">Other</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Address name</label>
+                <input type="text" class="form-control" formControlName="title"
+                  [ngClass]="{ 'is-invalid': submitted && f['title'].errors }">
+                <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                  <div *ngIf="f['title'].errors['required']">Title is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Incident description</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="location"
+                    [ngClass]="{ 'is-invalid': submitted && f['location'].errors }">
+                  <span class="input-group-text"><i class="fa fa-search"></i></span>
+                  <div *ngIf="submitted && f['location'].errors" class="invalid-feedback">
+                    <div *ngIf="f['location'].errors['required']">Location is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Reference number</label>
+                <input type="text" class="form-control" formControlName="referenceNumber">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Reference archive no</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="refArchiveNo">
+                  <span class="input-group-text"><i class="fa fa-search"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Time incident detected</label>
+                <div class="input-group">
+                  <input type="datetime-local" class="form-control" formControlName="incidentDateTime"
+                    [ngClass]="{ 'is-invalid': submitted && f['incidentDateTime'].errors }">
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                  <div *ngIf="submitted && f['incidentDateTime'].errors" class="invalid-feedback">
+                    <div *ngIf="f['incidentDateTime'].errors['required']">Incident date time is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Start date/time</label>
+                <div class="input-group">
+                  <input type="datetime-local" class="form-control" formControlName="startDateTime">
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>End of issue time</label>
+                <div class="input-group">
+                  <input type="datetime-local" class="form-control" formControlName="endDateTime">
+                  <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>E-mail address</label>
+                <input type="email" class="form-control" formControlName="email"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'].errors }">
+                <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                  <div *ngIf="f['email'].errors['email']">Enter a valid email address</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Created by</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="createdBy">
+                  <span class="input-group-text"><i class="fa fa-search"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Status</label>
+                <select formControlName="status" class="form-select"
+                  [ngClass]="{ 'is-invalid': submitted && f['status'].errors }">
+                  <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+                </select>
+                <div *ngIf="submitted && f['status'].errors" class="invalid-feedback">
+                  <div *ngIf="f['status'].errors['required']">Status is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Severity</label>
+                <select formControlName="severity" class="form-select"
+                  [ngClass]="{ 'is-invalid': submitted && f['severity'].errors }">
+                  <option *ngFor="let severity of severityOptions" [value]="severity">{{ severity }}</option>
+                </select>
+                <div *ngIf="submitted && f['severity'].errors" class="invalid-feedback">
+                  <div *ngIf="f['severity'].errors['required']">Severity is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="row mt-4">
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Submit Incident
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

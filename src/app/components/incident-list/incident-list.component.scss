@@ -1,0 +1,134 @@
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+  
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #333;
+    }
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .table {
+    width: 100%;
+    margin-bottom: 0;
+    
+    th {
+      font-weight: 600;
+      color: #495057;
+      border-bottom: 2px solid #dee2e6;
+    }
+    
+    td {
+      vertical-align: middle;
+    }
+  }
+  
+  .badge {
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  
+  .badge-danger {
+    background-color: #ff4d4f;
+    color: white;
+  }
+  
+  .badge-warning {
+    background-color: #faad14;
+    color: white;
+  }
+  
+  .badge-success {
+    background-color: #52c41a;
+    color: white;
+  }
+  
+  .badge-secondary {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+  
+  .status-open {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    border: 1px solid #91d5ff;
+  }
+  
+  .status-in-progress {
+    background-color: #fff7e6;
+    color: #fa8c16;
+    border: 1px solid #ffd591;
+  }
+  
+  .status-resolved {
+    background-color: #f6ffed;
+    color: #52c41a;
+    border: 1px solid #b7eb8f;
+  }
+  
+  @media (max-width: 767px) {
+    .table-responsive {
+      border: 0;
+    }
+    
+    .table thead {
+      display: none;
+    }
+    
+    .table tr {
+      margin-bottom: 15px;
+      display: block;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .table td {
+      display: block;
+      text-align: right;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 15px;
+      
+      &:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+      }
+      
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
